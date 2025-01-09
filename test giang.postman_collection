@@ -39,7 +39,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"cityslicka\"\r\n}"
+					"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"cityslicka\",\r\n    \"name\":\"branch1\"\r\n}"
 				},
 				"url": {
 					"raw": "https://reqres.in/api/login/apimore2",

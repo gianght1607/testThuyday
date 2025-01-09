@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "02509127-4825-4920-928f-6543db79a53f",
+		"name": "test giang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7178995"
+	},
+	"item": [
+		{
+			"name": "register api more 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var rdStt = [\"JOIN_EVENT\",\"IN_PROGRESS\",\"COMPLETED\"]\r",
+							"var index = Math.floor(Math.random() * (2 - 0 + 1)) + 0\r",
+							"pm.environment.set(\"rdstt\", rdStt[index]);\r",
+							"var rdNickname = [\"Trần Ngọc Thảo\",\"Cún sữa đáng yêu\",\"Nhóc kool\"]\r",
+							"pm.environment.set(\"rdnn\", rdNickname[index]);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "secret-api-key",
+						"value": "YW4HnsYN0Q0BKs0ZBWBXbqc0ajTnBQ64",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"eve.holt@reqres.in\",\r\n    \"password\": \"cityslicka\"\r\n}"
+				},
+				"url": {
+					"raw": "https://reqres.in/api/login/apimore2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"login",
+						"apimore2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

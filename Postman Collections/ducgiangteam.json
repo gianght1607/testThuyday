@@ -1286,7 +1286,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/v1/accounts/:accountId",
+							"raw": "{{baseUrl}}/api/v1/accounts/:accountId?test=abc",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -1296,9 +1296,14 @@
 								"accounts",
 								":accountId"
 							],
+							"query": [
+								{
+									"key": "test",
+									"value": "abc"
+								}
+							],
 							"variable": [
 								{
-									"id": "dd6c9c2b-5b2a-49b3-8b06-ca22e6a11967",
 									"key": "accountId",
 									"value": "{{e2e_user_account_id_from}}"
 								}

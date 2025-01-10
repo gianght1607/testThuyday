@@ -1286,7 +1286,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/v1/accounts/:accountId?test=abc",
+							"raw": "{{baseUrl}}/api/v1/accounts/:accountId?testxyz=xyz",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -1298,8 +1298,8 @@
 							],
 							"query": [
 								{
-									"key": "test",
-									"value": "abc"
+									"key": "testxyz",
+									"value": "xyz"
 								}
 							],
 							"variable": [

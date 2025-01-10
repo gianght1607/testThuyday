@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "40b25e41-70d7-49d6-b6b8-9b84e64a94a8",
+		"name": "AUTO API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0cde36ac-e8ac-42fd-bd23-7d5fa42e1df0",
+						"exec": [
+							"let jsonData = pm.response.json();\r",
+							"let domainEmail = 'reqres.in'\r",
+							"for(let i=0;i<jsonData.data.length;i++)\r",
+							"{\r",
+							"    // biến dùng cho kiểm tra domain\r",
+							"    let domain = jsonData.data[i].email.split(\"@\")[1]\r",
+							"    // biến dùng cho kiểm tra username\r",
+							"    let firstname = jsonData.data[i].first_name\r",
+							"    let lastname = jsonData.data[i].last_name\r",
+							"    let username = jsonData.data[i].email.split(\"@\")[0]\r",
+							"    //biến dùng cho kiểm tra firstname và lastname\r",
+							"    let firstnameVerify = jsonData.data[i].email.split(\".\")[0]\r",
+							"    let lastnameVerify = jsonData.data[i].email.split(\".\")[1].split(\"@\")[0]\r",
+							"\r",
+							"// kiểm tra domain =  reqres.in\r",
+							"    pm.test(\"All Domain Email is correct\", function () {\r",
+							"        pm.expect(domain).to.eql(domainEmail);\r",
+							"    });\r",
+							"// kiểm tra username = firstname.lastname\r",
+							"    pm.test(\"All username is correct\", function () {\r",
+							"        pm.expect(`${firstname.toLowerCase()}.${lastname.toLowerCase()}`).to.eql(username);\r",
+							"    });\r",
+							"// kiểm tra firstname và lastname được tách ra từ username\r",
+							"    pm.test(\"All firstname is correct\", function () {\r",
+							"        pm.expect(`${firstnameVerify.toLowerCase()}`).to.eql(jsonData.data[i].first_name.toLowerCase());\r",
+							"    });\r",
+							"    pm.test(\"All lastname is correct\", function () {\r",
+							"        pm.expect(`${lastnameVerify.toLowerCase()}`).to.eql(jsonData.data[i].last_name.toLowerCase());\r",
+							"    });\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d7ef373d-58c4-44ac-a5b6-d39c5fca982c",
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "0ee51080-5d65-4eb3-9045-50ef66f40151",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users?page=1",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://virtserver.swaggerhub.com/HAGIANG160895/register/1.0.0/devices",
+			"id": "0ab90d57-f671-4d31-9a6d-58db5af8bc09",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"uri\": \"http://10.0.0.220:8080\",\r\n  \"id\": \"0729a580-2240-11e6-9eb5-0002a5d5c51b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://virtserver.swaggerhub.com/HAGIANG160895/register/1.0.0/devices",
+				"description": "Generated from cURL: curl -X 'POST' \\\r\n  'https://virtserver.swaggerhub.com/HAGIANG160895/register/1.0.0/devices' \\\r\n  -H 'accept: */*' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"uri\": \"http://10.0.0.220:8080\",\r\n  \"id\": \"0729a580-2240-11e6-9eb5-0002a5d5c51b\"\r\n}'"
+			},
+			"response": []
+		}
+	]
+}
